@@ -2,11 +2,17 @@
 layout: default
 ---
 
-# Trailblazer
+<div class="row">
+  <div class="columns">
+    <h1 id="trailblazer">Trailblazer</h1>
+  </div>
+</div>
 
 [Stack]
 
+
 Trailblazer gives you a high-level architecture for web applications. Logic that used to get violently pressed into MVC is restructured and decoupled from the Rails framework. New abstraction layers like operations, form objects, authorization policies, data twins and view models guide you towards a better architecture.
+
 
 By applying encapsulation and good OOP, Trailblazer maximizes reusability of components, gives you a more intuitive structure for growing applications and adds conventions and best practices on top of Rails' primitive MVC stack.
 

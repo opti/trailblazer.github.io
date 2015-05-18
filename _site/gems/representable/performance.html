@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Trailblazer : A new architecture for Rails.">
+    <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/normalize.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/stylesheet.css">
+
+    <title>Trailblazer</title>
+  </head>
+
+  <body>
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-unit">
+        <div class="row">
+          <div class="columns">
+            <h1 id="project_title">
+              <a href="#"><img src="/images/icon_trb_glow.png"></a>
+
+              Trailblazer
+            </h1>
+            <h2>A new architecture for Rails.</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--This will be added later -->
+<!--           <a id="forkme_banner" href="https://github.com/trailblazer/www.trailblazerb.org">View on GitHub</a> -->
+
+
+
+<!--
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/trailblazer/www.trailblazerb.org/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/trailblazer/www.trailblazerb.org/tarball/master">Download this project as a tar.gz file</a>
+            </section> -->
+
+
+    <!-- MAIN CONTENT -->
+    <div class="row">
+      <div class="columns">
+        <h1 id="representable-performance">Representable: Performance</h1>
+
+<p>Since Representable 2.2 we provide the feature <code>Representable::Cached</code> which boost up rendering and parsing speed by about 50%.</p>
+
+<p>Instead of unnecessarily creating (sometimes thousands of) nested representers, bindings, and associated instances for every represented object, this is now cached. By making <code>Binding</code> instances stateless we can reuse it.</p>
+
+<p>[Example]
+Now, only one binding instance is used to render/parse the entire collection.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>As per Representable 2.2 this feature is still experimental. Nevertheless, we recommend using it. Note that caching <strong>only works with decorators</strong>.</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">AlbumRepresenter</span> <span class="o">&lt;</span> <span class="no">Representable</span><span class="o">::</span><span class="no">Decorator</span>
+  <span class="kp">include</span> <span class="no">Representable</span><span class="o">::</span><span class="no">Hash</span>
+  <span class="n">feature</span> <span class="no">Representable</span><span class="o">::</span><span class="no">Cached</span>
+
+  <span class="n">property</span> <span class="ss">:name</span>
+
+  <span class="n">collection</span> <span class="ss">:songs</span> <span class="k">do</span>
+    <span class="n">property</span> <span class="ss">:title</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></div>
+
+<p>Inserting the module on the top-level representer via <code>feature Representable::Cached</code> will activate caching for all representers in the graph.</p>
+
+<p>[speedup when rendering/parsing]</p>
+
+<h2 id="reusing-the-top-level-representer">Reusing the top-level Representer</h2>
+
+<p>It is also possible to cache the top-level representer and reuse it, e.g. for multiple requests. Of course, doing so is your job. However, once the decorator has been initialized the first time, it can be reused using <code>#update!</code>. Again, doing so is up to you.</p>
+
+<p>[roar-rails support]</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">decorator</span> <span class="o">=</span> <span class="no">AlbumRepresenter</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">album</span><span class="p">)</span>
+
+<span class="n">decorator</span><span class="o">.</span><span class="n">to_json</span> <span class="c1"># first request.</span>
+
+<span class="n">decorator</span><span class="o">.</span><span class="n">update!</span><span class="p">(</span><span class="n">album</span><span class="p">)</span> <span class="c1"># second request.</span>
+<span class="n">decorator</span><span class="o">.</span><span class="n">to_json</span></code></pre></div>
+
+<p>Since the decorator and its bindings are stateless, you only need to update the represented object. When rendering or parsing, all changing runtime data is then passed the the respective sub-systems using method arguments. No state is held.</p>
+
+<h2 id="pitfalls">Pitfalls</h2>
+
+<p>Using <code>Cached</code> currently hooks into the <code>Deserializer:#prepare</code> method. If you use <code>:prepare</code> to instantiate different representers per iteration, you might have problems with caching. I’ll update this soon.</p>
+
+<p>[Graph of caching hierarchy]</p>
+
+
+        <h3>
+          <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact
+        </h3>
+
+        <p>Having trouble with Trailblazer? Don't hesitate to join us on the Freenode IRC <a href="https://webchat.freenode.net/">#trailblazer</a> channel!</p>
+
+      </div>
+    </div>
+
+    <!-- FOOTER  -->
+    <footer>
+      <div class="row">
+        <div class="columns">
+          <p class="copyright">Trailblazer maintained by <a href="https://github.com/trailblazer">trailblazer</a></p>
+          <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+        </div>
+      </div>
+    </footer>
+
+
+
+  </body>
+</html>

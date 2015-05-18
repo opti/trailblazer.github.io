@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Trailblazer : A new architecture for Rails.">
+    <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/normalize.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/stylesheet.css">
+
+    <title>Trailblazer</title>
+  </head>
+
+  <body>
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-unit">
+        <div class="row">
+          <div class="columns">
+            <h1 id="project_title">
+              <a href="#"><img src="/images/icon_trb_glow.png"></a>
+
+              Trailblazer
+            </h1>
+            <h2>A new architecture for Rails.</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--This will be added later -->
+<!--           <a id="forkme_banner" href="https://github.com/trailblazer/www.trailblazerb.org">View on GitHub</a> -->
+
+
+
+<!--
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/trailblazer/www.trailblazerb.org/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/trailblazer/www.trailblazerb.org/tarball/master">Download this project as a tar.gz file</a>
+            </section> -->
+
+
+    <!-- MAIN CONTENT -->
+    <div class="row">
+      <div class="columns">
+        <div class="row">
+  <div class="columns">
+    <h1 id="trailblazer">Trailblazer</h1>
+  </div>
+</div>
+
+<p>[Stack]</p>
+
+<p>Trailblazer gives you a high-level architecture for web applications. Logic that used to get violently pressed into MVC is restructured and decoupled from the Rails framework. New abstraction layers like operations, form objects, authorization policies, data twins and view models guide you towards a better architecture.</p>
+
+<p>By applying encapsulation and good OOP, Trailblazer maximizes reusability of components, gives you a more intuitive structure for growing applications and adds conventions and best practices on top of Rails’ primitive MVC stack.</p>
+
+<p><img src="images/Trb-Stack.png" alt="" /></p>
+
+<p>Controllers and models end up as lean endpoints for HTTP dispatching and persistence. A polymorphic architecture sitting between controller and persistence is designed to handle many different contexts helps to minimize code to handle various user roles and edge cases.</p>
+
+<h2 id="gems">Gems</h2>
+
+<p>Trailblazer is an integrated collection of gems. The gems itself are completely self-contained, minimalistic and solve just one particular problem. Many of them have been in use in thousands of production sites for years.</p>
+
+<p>[a grid is what we need here]</p>
+
+<h3 id="cellshttpsgithubcomapotonickcells"><a href="https://github.com/apotonick/cells">Cells</a></h3>
+
+<div class="box">
+  <div class="description">
+    Cells provide view models to encapsulate parts of your views into classes. A view model is an object-oriented partial and doesn't know anything about the controller or the rendering view.
+  </div>
+
+  <div class="example">
+    
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Comment</span><span class="o">::</span><span class="no">Cell</span> <span class="o">&lt;</span> <span class="no">Cell</span><span class="o">::</span><span class="no">ViewModel</span>
+  <span class="n">property</span> <span class="ss">:body</span>
+  <span class="n">property</span> <span class="ss">:author</span>
+
+  <span class="k">def</span> <span class="nf">show</span>
+    <span class="n">render</span>
+  <span class="k">end</span>
+
+<span class="kp">private</span>
+  <span class="k">def</span> <span class="nf">author_link</span>
+    <span class="n">link_to</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">author</span><span class="o">.</span><span class="n">email</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">author</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></div>
+
+  </div>
+</div>
+
+<div class="box">
+  <div class="description">
+    Views can be Haml, ERB, or Slim. Method calls are the only way to retrieve data. Methods are directly called on the cell instance.
+  </div>
+
+  <div class="example">
+    
+<div class="highlight"><pre><code class="language-haml" data-lang="haml"><span class="nt">%h3</span> New Comment
+  <span class="p">=</span> <span class="n">body</span>
+
+By <span class="si">#{</span><span class="n">author_link</span><span class="si">}</span></code></pre></div>
+
+  </div>
+</div>
+
+<h2 id="operation">Operation</h2>
+
+<h2 id="reformgemsreform"><a href="gems/reform">Reform</a></h2>
+
+<h2 id="representablegemsrepresentable"><a href="gems/representable">Representable</a></h2>
+
+<h2 id="roar">Roar</h2>
+
+<h2 id="twin">Twin</h2>
+
+
+
+        <h3>
+          <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact
+        </h3>
+
+        <p>Having trouble with Trailblazer? Don't hesitate to join us on the Freenode IRC <a href="https://webchat.freenode.net/">#trailblazer</a> channel!</p>
+
+      </div>
+    </div>
+
+    <!-- FOOTER  -->
+    <footer>
+      <div class="row">
+        <div class="columns">
+          <p class="copyright">Trailblazer maintained by <a href="https://github.com/trailblazer">trailblazer</a></p>
+          <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+        </div>
+      </div>
+    </footer>
+
+
+
+  </body>
+</html>
