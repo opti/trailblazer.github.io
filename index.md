@@ -4,12 +4,9 @@ layout: default
 
 <div class="row">
   <div class="columns">
-    <h1 id="trailblazer">Trailblazer</h1>
+    <h2 id="trailblazer">Trailblazer</h2>
   </div>
 </div>
-
-[Stack]
-
 
 Trailblazer gives you a high-level architecture for web applications. Logic that used to get violently pressed into MVC is restructured and decoupled from the Rails framework. New abstraction layers like operations, form objects, authorization policies, data twins and view models guide you towards a better architecture.
 
@@ -24,7 +21,18 @@ Controllers and models end up as lean endpoints for HTTP dispatching and persist
 
 Trailblazer is an integrated collection of gems. The gems itself are completely self-contained, minimalistic and solve just one particular problem. Many of them have been in use in thousands of production sites for years.
 
-[a grid is what we need here]
+<div class="row">
+  <div class="columns medium-6">
+    <div class="panel">
+      This is a placeholder, handle with care
+    </div>
+  </div>
+  <div class="columns medium-6">
+    <div class="panel">
+      This is a placeholder, handle with care
+    </div>
+  </div>
+</div>
 
 ### [Cells](https://github.com/apotonick/cells)
 
